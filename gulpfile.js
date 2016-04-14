@@ -1,6 +1,6 @@
-var gulp = require('gulp');
-var browserSync = require('browser-sync');
-var nodemon = require('gulp-nodemon');
+var gulp = require('gulp'),
+		browserSync = require('browser-sync'),
+		nodemon = require('gulp-nodemon');
 
 gulp.task('serve', ['browser-sync']);
 
