@@ -40,6 +40,8 @@ npm run dev
 3. No optimization of assets (uglify, concatenation, etc.)
 4. I'm quite doubtful on MongoDB, maybe should have used Postgres
 5. Data stored in database is not normalized
+6. No authentication or security implemented, which lead to issue 7 below
+7. Only **R** in **CRUD** for DB is implemented
 
 
 ## Packages used
@@ -57,6 +59,7 @@ mongoose - v4.4.12
 react - v15.0.1
 react-dom - v15.0.1
 request - v2.71.0
+webpack - v1.12.15
 browser-sync - v2.12.2
 concurrently - v2.0.0
 gulp - v3.9.1
