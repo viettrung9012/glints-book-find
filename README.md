@@ -5,9 +5,6 @@ Scrape programming languages books from first page of amazon search and display 
 
 This project used **MongoDB + Nodejs + Express + React + Webpack** for development
 
-## Author
-Truong Viet Trung
-
 ## Build & Run
 #### App
 ##### Requirement
