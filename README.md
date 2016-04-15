@@ -41,7 +41,7 @@ npm run dev
 4. I'm quite doubtful on MongoDB, maybe should have used Postgres
 5. Data stored in database is not normalized
 6. No authentication or security implemented, which lead to issue 7 below
-7. Only **R** in **CRUD** for DB is implemented
+7. Only **R** in **CRUD** for DB API is implemented
 
 
 ## Packages used
