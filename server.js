@@ -7,13 +7,23 @@ var express = require('express'),
 
 var app = express();
 app.use(express.static('public'));
+app.use(express.static('node_modules/materialize-css/dist'));
+app.use('/js',express.static('node_modules/jquery/dist'));
 app.get('/', function(req, res) {
  res.sendFile(__dirname + '/index.html');
 });
 app.get('/api/books/:skill', function(req, res) {
-  Book.find({skill: req.params.skill}, function(err, results){
-    res.send(results);
-  });
+  if (req.params.skill) {
+    Book.find({skill: req.params.skill}, function(err, results){
+      if (!err) {
+        res.send(results);
+      } else {
+        res.send([]);
+      }
+    });
+  } else {
+    res.send([]);
+  }
 });
 var server = app.listen(3000, function() {
   mongoose.connect(constants.MONGO_SERVER);

@@ -7,7 +7,7 @@ var getHTMLResponse = function(url) {
     if (!url) {
       reject('No URL');
     }
-    request({url: url, timeout: 5000}, function(err, res, html) {
+    request.get(url, {timeout: 5000}, function(err, res, html) {
       if (!err) {
         resolve(html);
       } else {
@@ -21,12 +21,15 @@ var getBookDetails = function(url) {
   return new Promise(function(resolve){
     getHTMLResponse(url)
     .then(function(html){
-      var encodedDataPos = html.indexOf('bookDescEncodedData'),
-          startIndex = html.indexOf('"', encodedDataPos) + 1,
-          endIndex = html.indexOf('"', startIndex),
-          descriptionElRaw = html.substring(startIndex, endIndex),
-          description = unescape(descriptionElRaw);
-      resolve(description);
+      var startIndex = html.indexOf('bookDescEncodedData = "') + 23;
+      if (startIndex === 22) { // might be due to amazon blocking bot
+        resolve('');
+      } else {
+        var endIndex = html.indexOf('"', startIndex),
+            descriptionElRaw = html.substring(startIndex, endIndex),
+            description = unescape(descriptionElRaw);
+        resolve(description);
+      }
     })
     .catch(function(err){
       resolve('');
