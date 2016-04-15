@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"webpack -d --watch\" \"gulp serve\""
+    "start": "node server.js",
+    "dev": "concurrently \"webpack -d --watch\" \"gulp serve\""
   },
   "author": "",
   "license": "ISC",
