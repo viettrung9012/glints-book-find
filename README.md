@@ -23,6 +23,8 @@ npm start
 ```
 Open `http://localhost:3000/` to view the app
 
+**Note:** When server started for the first time it could take some time to scrape
+
 #### Dev Mode
 ##### Requirement
 To run in dev mode, have **browser-sync, gulp, nodemon** installed on local machine
